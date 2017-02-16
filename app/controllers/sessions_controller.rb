@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       flash[:notice] = "Successfully logged in"
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to user_path(current_user)
     else
       flash.now[:notice] = "Wrong input"
       render :new

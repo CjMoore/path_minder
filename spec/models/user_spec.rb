@@ -39,4 +39,11 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "relationships" do
+    it "has_many combat scenarios" do
+      user = User.create(username: "CJ", email: "cj@cj.com", password: "password")
+      cs = user.combat_scenarios.create(name: "Party Fights Skeletons")
+      expect(user).to respond_to(:combat_scenarios)
+    end
+  end
 end

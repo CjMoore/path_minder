@@ -1,0 +1,11 @@
+<h1>Create New Combat Scenario</h1>
+
+
+<%= form_for(@combat_scenario) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Create Combat Scenario"%>
+
+<% end %>

@@ -1,0 +1,11 @@
+<h1><%= current_user.username %>'s Combat Scenarios</h1>
+
+<%= link_to "Create Combat Scenario", new_combat_scenario_path %>
+
+<ul>
+<% @combat_scenarios.each do |combat| %>
+  <li><%= link_to combat.name, combat_scenario_path(combat) %></li>
+  <%= link_to "Delete", combat_scenario_path(combat), method: :delete %>
+  <%= link_to "Edit", edit_combat_scenario_path(combat) %>
+<% end %>
+</ul>

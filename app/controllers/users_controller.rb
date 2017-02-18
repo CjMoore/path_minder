@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    redirect_to combat_scenarios_path
   end
 
   private

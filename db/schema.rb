@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216204709) do
+ActiveRecord::Schema.define(version: 20170217183924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(version: 20170216204709) do
     t.index ["user_id"], name: "index_combat_scenarios_on_user_id", using: :btree
   end
 
+  create_table "creatures", force: :cascade do |t|
+    t.string   "name"
+    t.string   "creature_name"
+    t.integer  "count"
+    t.string   "creature_type"
+    t.integer  "hit_points"
+    t.string   "traits"
+    t.integer  "initiative",         default: 0
+    t.integer  "combat_scenario_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["combat_scenario_id"], name: "index_creatures_on_combat_scenario_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
@@ -33,4 +47,5 @@ ActiveRecord::Schema.define(version: 20170216204709) do
   end
 
   add_foreign_key "combat_scenarios", "users"
+  add_foreign_key "creatures", "combat_scenarios"
 end

@@ -9,9 +9,9 @@ describe "on combat scenario show user can click a button" do
     cs1 = user.combat_scenarios.create!(name: "Party Fights Giants")
     visit combat_scenario_path(cs1)
 
-    click_on "Add Creature"
+    click_on("Add Creature")
 
-    expect(current_path).to eq(new_combat_scenario_creature_path)
+    expect(current_path).to eq(new_combat_scenario_creature_path(cs1))
 
     fill_in 'creature[name]', :with => "Gorath"
     fill_in 'creature[creature_name]', :with => "Frost Giant"

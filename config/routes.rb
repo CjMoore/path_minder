@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
 
-  resources :combat_scenarios
+  resources :combat_scenarios do
+    resources :creatures, only: [:new, :index, :create, :show]
+  end
 
   namespace :admin do
     resources :users, only: [:index]

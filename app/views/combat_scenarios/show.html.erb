@@ -1,6 +1,12 @@
 
 <h1><%= @combat_scenario.name %></h1>
 
-<%= link_to "Add Creature", new_combat_scenario_creature_path %>
+<ul>
+  <% @combat_scenario.creatures.each do |creature| %>
+    <li><%= link_to creature.name, combat_scenario_creature_path(@combat_scenario, creature) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add Creature", new_combat_scenario_creature_path(@combat_scenario) %>
 
 <%= link_to "<<< All Combat Scenarios", combat_scenarios_path %>

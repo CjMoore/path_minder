@@ -12,9 +12,9 @@ describe "user can login" do
 
     # save_and_open_page
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(combat_scenarios_path)
     expect(page).to have_content("Successfully logged in")
-    expect(page).to have_content("Welcome, CJ")
+    # expect(page).to have_content("Welcome, CJ")
     expect(page).to have_content("Logout")
   end
 end

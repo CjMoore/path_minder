@@ -7,3 +7,6 @@
 <%= @creature.fortitude_save %>
 <%= @creature.will_save %>
 <%= @creature.reflex_save %>
+
+
+  <%= link_to "Delete", combat_scenario_creature_path(@combat_scenario, @creature), method: :delete %>

@@ -17,6 +17,7 @@ class CreaturesController < ApplicationController
   end
 
   def show
+    @combat_scenario = CombatScenario.find(params[:combat_scenario_id])
     @creature = Creature.find(params[:id])
   end
 
@@ -34,6 +35,15 @@ class CreaturesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @combat_scenario = CombatScenario.find(params[:combat_scenario_id])
+    @creature = Creature.find(params[:id])
+
+    @creature.destroy
+
+    redirect_to combat_scenario_path(@combat_scenario)
   end
 
   private

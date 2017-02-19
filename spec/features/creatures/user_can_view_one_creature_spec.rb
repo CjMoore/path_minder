@@ -12,6 +12,9 @@ describe "user can visit show page for one creature" do
                                     creature_name: "Ice Giant",
                                     creature_type: "Humanoid",
                                     hit_points: 174,
+                                    will_save: 14,
+                                    reflex_save: 6,
+                                    fortitude_save: 3,
                                     traits: "Low-light vision, treats intimidate and perception as class skills" )
 
     visit combat_scenario_creature_path(cs1, creature)
@@ -20,6 +23,9 @@ describe "user can visit show page for one creature" do
     expect(page).to have_content("Ice Giant")
     expect(page).to have_content("Humanoid")
     expect(page).to have_content("174")
+    expect(page).to have_content("14")
+    expect(page).to have_content("6")
+    expect(page).to have_content("3")
     expect(page).to have_content("Low-light vision, treats intimidate and perception as class skills")
   end
 end

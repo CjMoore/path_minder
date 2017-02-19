@@ -18,6 +18,8 @@ describe "on combat scenario show user can click a button" do
     fill_in 'creature[will_save]', :with => 14
     fill_in 'creature[reflex_save]', :with => 6
     fill_in 'creature[fortitude_save]', :with => 3
+    fill_in 'creature[perception]', :with => 10
+    fill_in 'creature[base_initiative]', :with => -1
     fill_in 'creature[creature_type]', :with => "Humanoid"
     fill_in 'creature[hit_points]', :with => 174
     fill_in 'creature[traits]', :with => "Low light vision, treats intimidate and perception as class skills"

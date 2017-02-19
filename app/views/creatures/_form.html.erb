@@ -1,0 +1,35 @@
+<%= form_for([@combat_scenario, @creature]) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :creature_name %>
+  <%= f.text_field :creature_name %>
+
+  <%= f.label :will_save %>
+  <%= f.text_field :will_save %>
+
+  <%= f.label :reflex_save %>
+  <%= f.text_field :reflex_save %>
+
+  <%= f.label :fortitude_save %>
+  <%= f.text_field :fortitude_save %>
+
+  <%= f.label :creature_type %>
+  <%= f.text_field :creature_type %>
+
+  <%= f.label :perception %>
+  <%= f.text_field :perception %>
+
+  <%= f.label :base_initiative %>
+  <%= f.text_field :base_initiative %>
+
+  <%= f.label :hit_points %>
+  <%= f.text_field :hit_points %>
+
+  <%= f.label :traits %>
+  <%= f.text_area :traits %>
+
+  <%= f.submit %>
+
+<% end %>

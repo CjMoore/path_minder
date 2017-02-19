@@ -15,6 +15,8 @@ describe "user can visit show page for one creature" do
                                     will_save: 14,
                                     reflex_save: 6,
                                     fortitude_save: 3,
+                                    base_initiative: -1,
+                                    perception: 10, 
                                     traits: "Low-light vision, treats intimidate and perception as class skills" )
 
     visit combat_scenario_creature_path(cs1, creature)

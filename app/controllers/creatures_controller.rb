@@ -20,9 +20,25 @@ class CreaturesController < ApplicationController
     @creature = Creature.find(params[:id])
   end
 
+  def edit
+    @combat_scenario = CombatScenario.find(params[:combat_scenario_id])
+    @creature = Creature.find(params[:id])
+  end
+
+  def update
+    @combat_scenario = CombatScenario.find(params[:combat_scenario_id])
+    @creature = Creature.find(params[:id])
+
+    if @creature.update_attributes(creature_params)
+      redirect_to combat_scenario_path(@combat_scenario)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def creature_params
-    params.require(:creature).permit(:name, :creature_name, :count, :creature_type, :hit_points, :traits)
+    params.require(:creature).permit(:name, :creature_name, :count, :creature_type, :hit_points, :traits, :will_save, :reflex_save, :fortitude_save, :perception, :base_initiative)
   end
 end

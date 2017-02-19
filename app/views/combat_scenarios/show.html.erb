@@ -3,7 +3,15 @@
 
 <ul>
   <% @combat_scenario.creatures.each do |creature| %>
-    <li><%= link_to creature.name, combat_scenario_creature_path(@combat_scenario, creature) %></li>
+    <li><%= link_to creature.name, combat_scenario_creature_path(@combat_scenario, creature) %>
+        <%= creature.creature_name %>
+        <%= creature.hit_points %>
+        <%= creature.will_save %>
+        <%= creature.reflex_save %>
+        <%= creature.fortitude_save %>
+        <%= creature.perception %>
+        <%= creature.base_initiative %>
+    </li>
   <% end %>
 </ul>
 

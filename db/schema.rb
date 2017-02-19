@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170219212647) do
     t.integer  "fortitude_save"
     t.integer  "reflex_save"
     t.boolean  "alive",              default: true
+    t.integer  "perception"
+    t.integer  "base_initiative"
     t.index ["combat_scenario_id"], name: "index_creatures_on_combat_scenario_id", using: :btree
   end
 

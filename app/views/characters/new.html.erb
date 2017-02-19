@@ -1,0 +1,25 @@
+<h1>Add New Character</h1>
+
+<%= form_for([current_user, @character]) do |f| %>
+
+  <%= f.label :player_name %>
+  <%= f.text_field :player_name%>
+
+  <%= f.label :name %>
+  <%= f.text_field :name%>
+
+  <%= f.label :hit_points %>
+  <%= f.text_field :hit_points %>
+
+  <%= f.label :base_initiative %>
+  <%= f.text_field :base_initiative %>
+
+  <%= f.label :race %>
+  <%= f.text_field :race %>
+
+  <%= f.label :character_class %>
+  <%= f.text_field :character_class %>
+
+  <%= f.submit %>
+
+<% end %>

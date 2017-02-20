@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates :username, :email,  uniqueness: true
 
   enum role: ['default', 'admin']
+
+  has_many :combat_scenarios, dependent: :destroy
 end

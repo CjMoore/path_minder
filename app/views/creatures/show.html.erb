@@ -1,12 +1,41 @@
-<%= @creature.name %>
 
-<%= @creature.creature_name %>
-<%= @creature.creature_type %>
-<%= @creature.hit_points %>
-<%= @creature.traits %>
-<%= @creature.fortitude_save %>
-<%= @creature.will_save %>
-<%= @creature.reflex_save %>
+<div class="row">
+  <div class="col s3">
+    <p>
 
-
-  <%= link_to "Delete", combat_scenario_creature_path(@combat_scenario, @creature), method: :delete %>
+    </p>
+  </div>
+    <div class="col s6">
+      <div class="card red darken-4">
+        <div class="card-content white-text">
+          <span class="card-title"><%=  @creature.name%></span>
+            <li>Creature Name: <%= @creature.creature_name %></li>
+            <li>HP: <%= @creature.hit_points %></li>
+            <li>Perception: <%= @creature.perception %></li>
+            <li>Base Initiative: <%= @creature.base_initiative %></li>
+            <li>Traits:
+              <p>
+              <%= @creature.traits %>
+            </p></li>
+            <li>Saving Throws:
+              <table class = "bordered">
+                <tr>
+                  <th class="data-field">Will</th>
+                  <th class="data-field">Reflex</th>
+                  <th class="data-field">Fortitude</th>
+                </tr>
+                <tr>
+                  <td><%= @creature.will_save %></td>
+                  <td><%= @creature.reflex_save %></td>
+                  <td><%= @creature.fortitude_save %></td>
+                </tr>
+              </table>
+            </li>
+        </div>
+        <div class="card-action">
+          <%= link_to "<< Back to Scenario", combat_scenario_path(@combat_scenario) %>
+          <%= link_to "Delete", combat_scenario_creature_path(@combat_scenario, @creature), method: :delete %>
+        </div>
+      </div>
+    </div>
+</div>

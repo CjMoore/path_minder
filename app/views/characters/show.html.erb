@@ -1,13 +1,28 @@
-<h1><%= @character.name %></h1>
 
-<ul>
-  <li><%= @character.player_name %></li>
-  <li><%= @character.hit_points %></li>
-  <li><%= @character.base_initiative %></li>
-  <li><%= @character.race %></li>
-  <li><%= @character.character_class %></li>
-</ul>
 
-<%= link_to "Edit Character", edit_user_character_path(@user, @character) %>
 
-<%= link_to "Delete", user_character_path(@user, @character), method: :delete %>
+<div class="row">
+  <div class="cols3">
+    <p>
+
+    </p>
+  </div>
+  <div class="col s6">
+    <div class="card  blue darken-4">
+      <div class="card-content white-text">
+        <span class = "card-title"><%= @character.name%></span>
+        <li>Player Name: <%= @character.player_name %></li>
+        <li>HP: <%= @character.hit_points %></li>
+        <li>Race: <%= @character.race %></li>
+        <li>Class: <%= @character.character_class %></li>
+        <li>Base Initiative: <%= @character.base_initiative %></li>
+        <li>Class: <%= @character.character_class %></li>
+      </div>
+      <div class="card-action">
+        <%= link_to "Edit Character", edit_user_character_path(@user, @character) %>
+
+        <%= link_to "Delete", user_character_path(@user, @character), method: :delete %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe CombatScenarioCharacter, type: :model do
+RSpec.describe Character, type: :model do
   describe "relationships" do
-    it "belongs to a combat_scenario and character" do
+    it "has many combat_scenarios" do
       user = User.create(username: "CJ", email: "cj@cj.com", password: "password")
       cs = user.combat_scenarios.create(name: "Party Fights Skeletons")
       character = user.characters.create(player_name: "CJ",
@@ -11,9 +11,8 @@ RSpec.describe CombatScenarioCharacter, type: :model do
                                           base_initiative: 12,
                                           race: "Half-Elf",
                                           character_class: "Rogue")
-      csc = CombatScenarioCharacter.new(combat_scenario_id: cs.id, character_id: character.id)
-      expect(csc).to respond_to(:character)
-      expect(csc).to respond_to(:combat_scenario)
+
+      expect(character).to respond_to(:combat_scenarios)
     end
   end
 end

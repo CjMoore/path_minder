@@ -23,6 +23,7 @@
       <%= character.hit_points %>
       <%= character.race %>
       <%= character.character_class %>
+      <%= button_to "Remove", combat_scenario_character_path(@combat_scenario, character), method: :delete %>
     </li>
   <% end %>
 </ul>

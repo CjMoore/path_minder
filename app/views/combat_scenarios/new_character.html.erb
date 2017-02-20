@@ -2,8 +2,10 @@
 
 <%= form_for(@combat_scenario) do |f| %>
 
-  <%= f.select :character_ids, Character.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+  <%#= f.select :character_ids, Character.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
 
-  <%= f.submit %>
+  <%= collection_select(:combat_scenario, :character_ids, current_user.characters, :id, :name, {}, { :multiple => true } )%>
+
+  <%= f.submit "Add Characters"%>
 
 <% end %>

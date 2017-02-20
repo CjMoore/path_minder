@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
     get '/characters', to: 'combat_scenarios#characters_index'
     get '/character/new', to: 'combat_scenarios#new_character'
-    post '/characters', to: 'combat_scenarios#add_character'
+    delete '/characters', to: 'combat_scenarios#remove_characters'
+
+    resources :characters, only: [:show]
+
+    delete '/characters/:id', to: 'combat_scenarios#remove'
 
   end
 

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "user can add existing character" do
-  scenario "to combat_scenarios" do
+describe "user can remove character" do
+  scenario "from combat scenario" do
     user = User.create!(username: "CJ", email: "cj@cj.com", password: "password")
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -13,29 +13,20 @@ describe "user can add existing character" do
                                         race: "Half-Elf",
                                         character_class: "Rogue")
 
-    character2 = user.characters.create(player_name: "Matt",
-                                        name: "Magpie",
-                                        hit_points: 95,
-                                        base_initiative: 6,
-                                        race: "Half-Orc",
-                                        character_class: "Barbarian")
-
-
-
-
     cs1 = user.combat_scenarios.create!(name: "Party Fights Giants")
     visit combat_scenario_path(cs1)
 
     click_on ("Add Character To Scenario")
 
     select("Praxhis", from: 'combat_scenario[character_ids][]')
-    select("Magpie", from: 'combat_scenario[character_ids][]')
 
     click_on "Add Characters"
 
     expect(current_path).to eq(combat_scenario_path(cs1))
-    expect(page).to have_link("Praxhis")
-    expect(page).to have_link("Magpie")
+    expect(page).to have_content("Praxhis")
 
+    click_button("Remove")
+
+    expect(page).to_not have_content("Praxhis")
   end
 end

@@ -52,10 +52,15 @@ class CombatScenariosController < ApplicationController
     @character = Character.new
   end
 
-  def add_character
+  def characters_index
   end
 
-  def characters_index
+  def remove
+    @combat_scenario = CombatScenario.find(params[:combat_scenario_id])
+    @character = Character.find(params[:id])
+    @combat_scenario.characters.delete(@character)
+
+    redirect_to combat_scenario_path(@combat_scenario)
   end
 
   private

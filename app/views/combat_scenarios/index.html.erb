@@ -1,5 +1,18 @@
 <h1><%= current_user.username %>'s Combat Scenarios</h1>
 
+<ul>
+  <% current_user.characters.each do |character| %>
+  <%#byebug %>
+    <li>
+      <%= link_to character.player_name, user_character_path(current_user, character) %>
+      <%= character.name %>
+      <%= character.hit_points %>
+      <%= character.race %>
+      <%= character.character_class %>
+    </li>
+  <% end %>
+</ul>
+
 <%= link_to "Create Combat Scenario", new_combat_scenario_path %>
 
 <ul>
@@ -9,5 +22,7 @@
   <%= link_to "Edit", edit_combat_scenario_path(combat) %>
 <% end %>
 </ul>
+
+<%= link_to "Add Character", new_user_character_path(current_user) %>
 
 <%= link_to "Logout", logout_path, method: :delete %>

@@ -20,6 +20,7 @@ class CombatScenariosController < ApplicationController
 
   def show
     @combat_scenario = CombatScenario.find(params[:id])
+    @user = @combat_scenario.user
   end
 
   def edit
@@ -46,9 +47,25 @@ class CombatScenariosController < ApplicationController
     redirect_to combat_scenarios_path
   end
 
+  def new_character
+    @combat_scenario = CombatScenario.find(params[:combat_scenario_id])
+    @character = Character.new
+  end
+
+  def characters_index
+  end
+
+  def remove
+    @combat_scenario = CombatScenario.find(params[:combat_scenario_id])
+    @character = Character.find(params[:id])
+    @combat_scenario.characters.delete(@character)
+
+    redirect_to combat_scenario_path(@combat_scenario)
+  end
+
   private
 
   def combat_params
-    params.require(:combat_scenario).permit(:name)
+    params.require(:combat_scenario).permit(:name, character_ids: [])
   end
 end

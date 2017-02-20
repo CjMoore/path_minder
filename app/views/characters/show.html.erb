@@ -1,0 +1,13 @@
+<h1><%= @character.name %></h1>
+
+<ul>
+  <li><%= @character.player_name %></li>
+  <li><%= @character.hit_points %></li>
+  <li><%= @character.base_initiative %></li>
+  <li><%= @character.race %></li>
+  <li><%= @character.character_class %></li>
+</ul>
+
+<%= link_to "Edit Character", edit_user_character_path(@user, @character) %>
+
+<%= link_to "Delete", user_character_path(@user, @character), method: :delete %>

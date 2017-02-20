@@ -7,4 +7,5 @@ class User < ApplicationRecord
   enum role: ['default', 'admin']
 
   has_many :combat_scenarios, dependent: :destroy
+  has_many :characters
 end

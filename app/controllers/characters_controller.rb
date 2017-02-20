@@ -18,8 +18,32 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    @user = @character.user
   end
 
+  def edit
+    @character = Character.find(params[:id])
+  end
+
+  def update
+    @character = Character.find(params[:id])
+
+    if @character.update_attributes(character_params)
+      flash[:notice] = "You've successfully updated a character"
+      redirect_to user_character_path(current_user, @character)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @character = Character.find(params[:id])
+    @character.destroy
+
+    flash[:notice] = "You've successfully deleted #{@character.name}"
+
+    redirect_to combat_scenarios_path
+  end
   private
 
   def character_params

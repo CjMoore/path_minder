@@ -7,6 +7,11 @@ Rails.application.routes.draw do
 
   resources :combat_scenarios do
     resources :creatures
+
+    get '/characters', to: 'combat_scenarios#characters_index'
+    get '/character/new', to: 'combat_scenarios#new_character'
+    post '/characters', to: 'combat_scenarios#add_character'
+
   end
 
   namespace :admin do

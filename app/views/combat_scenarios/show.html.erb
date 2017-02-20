@@ -15,6 +15,20 @@
   <% end %>
 </ul>
 
+<ul>
+  <% @combat_scenario.characters.each do |character| %>
+    <li>
+      <%= link_to character.name, user_character_path(@user, character) %>
+      <%= character.player_name %>
+      <%= character.hit_points %>
+      <%= character.race %>
+      <%= character.character_class %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add Character To Scenario", combat_scenario_character_new_path(@combat_scenario) %>
+
 <%= link_to "Add Creature", new_combat_scenario_creature_path(@combat_scenario) %>
 
 <%= link_to "<<< All Combat Scenarios", combat_scenarios_path %>

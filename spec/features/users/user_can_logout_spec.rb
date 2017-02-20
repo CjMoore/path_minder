@@ -10,7 +10,7 @@ describe "logged in user can" do
     fill_in 'session[password]', with: "password"
     click_on "Login"
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(combat_scenarios_path)
 
     click_on "Logout"
 

@@ -7,6 +7,12 @@ RSpec.describe CombatScenario, type: :model do
       cs = user.combat_scenarios.create(name: "Party Fights Skeletons")
       expect(cs).to respond_to(:user)
     end
+
+    it "has many creatures" do
+      user = User.create(username: "CJ", email: "cj@cj.com", password: "password")
+      cs = user.combat_scenarios.create(name: "Party Fights Skeletons")
+      expect(cs).to respond_to(:creatures)
+    end
   end
 
   describe "validations" do

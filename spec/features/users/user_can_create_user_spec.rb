@@ -10,8 +10,8 @@ describe "user can fill out a form" do
     fill_in 'user[password_confirmation]', :with => "password"
     click_on "Create Account"
 
-    expect(current_path).to eq(user_path(User.last))
+    expect(current_path).to eq(combat_scenarios_path)
     expect(page).to have_content("Successfully created new user")
-    expect(page).to have_content("Welcome, CJ")
+    # expect(page).to have_content("Welcome, CJ")
   end
 end

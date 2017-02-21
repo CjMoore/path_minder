@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :characters
   end
 
+  root 'sessions#new'
+
   resources :combat_scenarios do
     resources :creatures
 

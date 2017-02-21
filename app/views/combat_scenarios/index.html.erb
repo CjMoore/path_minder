@@ -1,28 +1,34 @@
 <h1><%= current_user.username %>'s Combat Scenarios</h1>
 
-<ul>
+
+  <div class="row">
   <% current_user.characters.each do |character| %>
-  <%#byebug %>
-    <li>
-      <%= link_to character.player_name, user_character_path(current_user, character) %>
-      <%= character.name %>
-      <%= character.hit_points %>
-      <%= character.race %>
-      <%= character.character_class %>
-    </li>
+    <div class="col s2">
+      <div class="card  blue darken-4">
+        <div class="card-content white-text">
+          <span class="card-title"><%= link_to character.name, user_character_path(current_user, character) %></span>
+          <ul>
+            <li>Player Name: <%= character.player_name %></li>
+            <li>HP: <%= character.hit_points %></li>
+            <li>Race: <%= character.race %></li>
+            <li>Class: <%= character.character_class %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
+<%= link_to "Add Character", new_user_character_path(current_user) %>
 
-<%= link_to "Create Combat Scenario", new_combat_scenario_path %>
 
-<ul>
+<ul class="collection with-header">
+  <li class = "collection-header"><h3>Combat Scenarios</h3></li>
 <% @combat_scenarios.each do |combat| %>
-  <li><%= link_to combat.name, combat_scenario_path(combat) %></li>
-  <%= link_to "Delete", combat_scenario_path(combat), method: :delete %>
-  <%= link_to "Edit", edit_combat_scenario_path(combat) %>
+  <li class = "collection-item scenario-item"><%= link_to combat.name, combat_scenario_path(combat), class: "scenario-name" %>
+    <%= link_to "Delete", combat_scenario_path(combat), method: :delete, class: "btn btn-delete" %>
+    <%= link_to "Edit", edit_combat_scenario_path(combat), class: "btn btn-edit" %>
+  </li>
 <% end %>
 </ul>
 
-<%= link_to "Add Character", new_user_character_path(current_user) %>
-
-<%= link_to "Logout", logout_path, method: :delete %>
+<%= link_to "Create Combat Scenario", new_combat_scenario_path %>

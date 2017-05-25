@@ -3,5 +3,5 @@ rvm: ruby-2.3.0
 services:
   - postgresql
 before_script:
-  - bundle exec && rake db:create && rake db:migrate
-script: rspec spec
+  - bundle exec rake db:create && bundle exec rake db:migrate
+script: bundle exec rspec spec

@@ -2,5 +2,6 @@ language: ruby
 rvm: ruby-2.3.0
 services:
   - postgresql
-before_script: -rake db:test:prepare
+before_script:
+  - rake db:setup && rake db:test:prepare
 script: bundle exec rspec spec

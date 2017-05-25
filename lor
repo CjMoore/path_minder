@@ -1,0 +1,27 @@
+[32m.[0m[32m.[0m[33m*[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[33m*[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m
+
+Pending: (Failures listed here are expected and do not affect your suite's status)
+[33m
+  1) user can click delete and character will be removed from characters[0m
+     [36m# Temporarily disabled with xscenario[0m
+[36m     # ./spec/features/characters/user_can_delete_character_spec.rb:4
+[0m[33m
+  2) when on the combat scenario index user can click a button and delete a scenario[0m
+     [36m# Temporarily disabled with xscenario[0m
+[36m     # ./spec/features/combat_scenario/user_can_delete_a_combat_scenario_spec.rb:4
+[0m
+
+Failures:
+
+  1) user can visit show page for one creature and see details for that creature
+     [31mFailure/Error: expect(page).to have_content("Humanoid")[0m
+     [31m  expected to find text "Humanoid" in "Path Minder Logout Gorath Creature Name: Ice Giant HP: 174 Perception: 10 Base Initiative: -1 Traits: Low-light vision, treats intimidate and perception as class skills Saving Throws: Will Reflex Fortitude 14 6 3 << Back to Scenario Delete Path Minder Links Combat Scenarios © 2017 Cj"[0m
+     [36m# ./spec/features/creatures/user_can_view_one_creature_spec.rb:26:in `block (2 levels) in <top (required)>'[0m
+
+Finished in 3.06 seconds (files took 4.36 seconds to load)
+[31m36 examples, 1 failure, 2 pending[0m
+
+Failed examples:
+
+[31mrspec ./spec/features/creatures/user_can_view_one_creature_spec.rb:4[0m [36m# user can visit show page for one creature and see details for that creature[0m
+

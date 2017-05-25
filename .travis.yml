@@ -2,5 +2,5 @@ language: ruby
 rvm: ruby-2.3.0
 services:
   - postgresql
-before_script: -psql -c 'create database path_minder_test;' -U postgres
+before_script: -rake db:test:prepare
 script: bundle exec rspec spec
